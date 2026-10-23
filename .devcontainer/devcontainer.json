@@ -1,0 +1,20 @@
+{
+  "name": "ROS 2 Jazzy - ${localWorkspaceFolderBasename}",
+  "build": { "dockerfile": "Dockerfile" },
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "remoteEnv": {
+    "WS": "${containerWorkspaceFolder}",
+    "PKG": "my_robot_pkg",
+    "DISPLAY": ":1"
+  },
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": { "label": "Desktop (noVNC)", "onAutoForward": "notify" }
+  },
+  "postStartCommand": "bash ${containerWorkspaceFolder}/start_desktop.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-iot.vscode-ros", "ms-python.python", "ms-vscode.cpptools"]
+    }
+  }
+}
